@@ -5,10 +5,10 @@
     <title>Гостюва книга</title>
   </head>
   <body>
-    <?php require_one('views/header.php') ?>
+    <?php require_once('views/header.php'); ?>
     <div class="blog">
       <h1>Text blog.)</h1>
     </div>
-    <?php require_one('views/footer.php') ?>
+    <?php require_once('views/footer.php'); ?>
   </body>
 </html>
