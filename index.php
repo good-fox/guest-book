@@ -7,16 +7,24 @@
   <body>
     <?php require_once('view/header.php'); ?>
     <div class="blog">
-      <h1>Text blog.)</h1>
 
       <?php
 
         require_once('metods/database.php');
+        require_once('metods/fundb.php');
 
-        $db = new DataBase;
-        $article = SQL::article_all($db->get_db());
+        $db = new DataBase('guestbook', 'admin', 'admin');
 
-        require_once('view/article.php');
+        if (!empty($_GET['id'])) {
+          $id = $_GET['id'];
+          $article = SQL::article_get($db->get_db(), $id);
+          require_once('view/article.php');
+
+        } else {
+          $article = SQL::article_all($db->get_db());
+          require_once('view/articles.php');
+        }
+
       ?>
 
     </div>
