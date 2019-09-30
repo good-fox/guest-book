@@ -18,6 +18,8 @@
           if (!empty($_GET['id'])) {
             $id = $_GET['id'];
             $article = SQL::article_get($db->get_db(), $id);
+            $comment = SQL::comment_get($db->get_db(), $id);
+
             require_once('view/article.php');
 
           } elseif ($_GET['action'] == 'add') {
