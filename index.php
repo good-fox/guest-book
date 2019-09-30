@@ -5,7 +5,7 @@
     <title>Гостюва книга</title>
   </head>
   <body>
-    <?php require_once('views/header.php'); ?>
+    <?php require_once('view/header.php'); ?>
     <div class="blog">
       <h1>Text blog.)</h1>
 
@@ -14,10 +14,12 @@
         require_once('metods/database.php');
 
         $db = new DataBase;
-        
+        $article = SQL::article_all($db->get_db());
+
+        require_once('view/article.php');
       ?>
 
     </div>
-    <?php require_once('views/footer.php'); ?>
+    <?php require_once('view/footer.php'); ?>
   </body>
 </html>
