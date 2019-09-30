@@ -1,9 +1,7 @@
-<!DOCTYPE html>
 <html lang="ru" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Гостюва книга</title>
-  </head>
+
+  <?php require_once('head.php'); ?>
+
   <body>
     <?php require_once('view/header.php'); ?>
     <div class="blog">
