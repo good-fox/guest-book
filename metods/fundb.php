@@ -9,7 +9,7 @@ class SQL
 {
 
   static public function article_all($db) {
-    $query = "SELECT * FROM articles ORDER BY id DESC";
+    $query = "SELECT * FROM `article` ORDER BY id DESC";
     $result = mysqli_query($db, $query);
 
     $n = mysqli_num_rows($result);
@@ -22,6 +22,15 @@ class SQL
 
     return $article;
   }
+
+  static public function article_get($db, $id){
+  $query = "SELECT * FROM `article` WHERE id=$id";
+  $result = mysqli_query($db, $query);
+
+  $article = mysqli_fetch_assoc($result);
+
+  return $article;
+}
 
 }
 
