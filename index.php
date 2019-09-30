@@ -15,10 +15,17 @@
 
         $db = new DataBase('guestbook', 'admin', 'admin');
 
-        if (!empty($_GET['id'])) {
-          $id = $_GET['id'];
-          $article = SQL::article_get($db->get_db(), $id);
-          require_once('view/article.php');
+        if (!empty($_GET['id']) or !empty($_GET['action'])) {
+
+          if (!empty($_GET['id'])) {
+            $id = $_GET['id'];
+            $article = SQL::article_get($db->get_db(), $id);
+            require_once('view/article.php');
+
+          } elseif ($_GET['action'] == 'add') {
+            require_once('view/article_add.php');
+            //SQL::article_add($db->get_db(), $name, $email, $title, $date, $content);
+          }
 
         } else {
           $article = SQL::article_all($db->get_db());
