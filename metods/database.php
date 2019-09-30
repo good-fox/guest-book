@@ -21,7 +21,8 @@ class DataBase {
   }
 
   public function get_db() {
-    $db = mysqli_connect($this->dbserver, $this->username, $this->password, $this->database);
+    $db = mysqli_connect($this->server, $this->username, $this->password, $this->database);
+    mysqli_query($db,"SET NAMES utf8");
     return $db;
   }
 
