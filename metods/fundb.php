@@ -24,15 +24,39 @@ class SQL
   }
 
   static public function article_get($db, $id){
-  $query = "SELECT * FROM `article` WHERE id=$id";
-  $result = mysqli_query($db, $query);
+    $query = "SELECT * FROM `article` WHERE id=$id";
+    $result = mysqli_query($db, $query);
 
-  $article = mysqli_fetch_assoc($result);
+    $article = mysqli_fetch_assoc($result);
 
-  return $article;
+    return $article;
+  }
+
+  static public function article_new($db, $name, $email, $title, $date, $content) {
+    $name = trim($name);
+    $email = trim($email);
+    $title = trim($title);
+    $content = trim($content);
+
+    if ($title == '')
+      return false;
+
+    $str = "INSERT INTO `article` (name, email, title, date, content) VALUES ('%s', '%s', '%s', '%s', '%s')";
+    $query = sprintf($str,
+      mysqli_real_escape_string($db, $name),
+      mysqli_real_escape_string($db, $email),
+      mysqli_real_escape_string($db, $title),
+      mysqli_real_escape_string($db, $date),
+      mysqli_real_escape_string($db, $content));
+
+    $result = mysqli_query($db, $query);
+
+    if (!$result)
+      die(mysqli_error($db));
+
+    return true;
+  }
+
 }
-
-}
-
 
 ?>
