@@ -11,7 +11,7 @@
         require_once('metods/database.php');
         require_once('metods/fundb.php');
 
-        $db = new DataBase('guestbook', 'admin', 'admin');
+        $db = new DataBase('guestbook');
 
         if (!empty($_GET['id']) or !empty($_GET['action'])) {
 
