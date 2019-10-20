@@ -6,6 +6,10 @@
     <p><?=$article['content']?></p>
 </div>
 
+<div class="add_comment">
+  
+</div>
+
 <div class="comment">
   <h2>
     <em>Коментарии</em>
