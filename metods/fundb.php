@@ -58,7 +58,7 @@ class SQL
   }
 
   static public function comment_get($db, $id) {
-    $query = "SELECT * FROM `comment` WHERE id=$id";
+    $query = "SELECT * FROM `comment` WHERE id_article=$id";
     $result = mysqli_query($db, $query);
 
     $n = mysqli_num_rows($result);
@@ -70,6 +70,25 @@ class SQL
     }
 
     return $comment;
+  }
+
+  static public function comment_new($db, $name, $date, $content, $id) {
+    $name = trim($name);
+    $content = trim($content);
+
+    $str = "INSERT INTO `comment` (name, date, content, id_article) VALUES ('%s', '%s', '%s', '%s')";
+    $query = sprintf($str,
+      mysqli_real_escape_string($db, $name),
+      mysqli_real_escape_string($db, $date),
+      mysqli_real_escape_string($db, $content),
+      mysqli_real_escape_string($db, $id));
+
+    $result = mysqli_query($db, $query);
+
+    if (!$result)
+      die(mysqli_error($db));
+
+    return true;
   }
 
 }
