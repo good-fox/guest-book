@@ -7,7 +7,15 @@
 </div>
 
 <div class="add_comment">
-  
+  <a href="../guest-book/index.php?id=<?=$id?>&action=add-comment">Оставить коментарий</a>
+
+  <?php
+    if (!empty($_GET['action']))
+      if ($_GET['action'] == 'add-comment') {
+        require_once('comment_add.php');
+      }
+   ?>
+
 </div>
 
 <div class="comment">
