@@ -25,6 +25,9 @@
           } elseif ($_GET['action'] == 'add') {
             require_once('view/article_add.php');
             //SQL::article_add($db->get_db(), $name, $email, $title, $date, $content);
+          } elseif ($_GET['action'] == 'admin') {
+            $admin = true;
+            require_once('view/admin.php');
           }
 
         } else {
