@@ -1,13 +1,15 @@
 <html lang="ru" dir="ltr">
 
-  <?php require_once('head.php'); ?>
+  <?php
+    require_once('head.php');
+    session_start();
+   ?>
 
   <body>
     <?php require_once('view/header.php'); ?>
     <div class="blog">
 
       <?php
-
         require_once('metods/database.php');
         require_once('metods/fundb.php');
 
@@ -26,8 +28,10 @@
             require_once('view/article_add.php');
             //SQL::article_add($db->get_db(), $name, $email, $title, $date, $content);
           } elseif ($_GET['action'] == 'admin') {
-            $admin = true;
             require_once('view/admin.php');
+          } elseif ($_GET['action'] == 'exit') {
+            $_SESSION['admin'] = false;
+            header("Location: index.php");
           }
 
         } else {
