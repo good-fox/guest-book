@@ -6,6 +6,12 @@
     <strong><?=$a['name']?> </strong>
     <em>- (<?=$a['email']?>) : <?=$a['date']?>.</em>
     <p><?=$a['content']?></p>
+    <p><?php
+    if (!empty($_SESSION['admin'])) {
+      if ($_SESSION['admin']) {
+        echo "Вітаю адмін";
+      }
+    } ?></p>
   </div>
   <?php endforeach; ?>
 </div>
