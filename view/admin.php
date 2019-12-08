@@ -5,6 +5,8 @@ if (!empty($_POST)) {
   $log = $_POST['log'];
 
   if ($log == 'admin' && $pas == 'admin') {
+    session_start();
+    $_SESSION['admin'] = true;
     header("Location: index.php");
   } else {
     echo "<p>Пароль або логін не вірні</p>";
