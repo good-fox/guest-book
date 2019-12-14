@@ -1,6 +1,6 @@
-<h2>
+<h3>
   <em>
-    <a href="../guest-book/index.php">Главная страница</a>
+    <a href="../guest-book/index.php">Гостьова книга</a>
     ________________
     <a href="../guest-book/index.php?action=add">(Оставить отзыв)</a>
     ________________
@@ -14,4 +14,4 @@
       echo "<a href=\"../guest-book/index.php?action=admin\">Вход</a>";
     ?>
   </em>
-</h2>
+</h3>
