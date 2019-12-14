@@ -57,6 +57,22 @@ class SQL
     return true;
   }
 
+
+  static public function article_delete($db, $id){
+    $query = "DELETE FROM `article` WHERE id='$id'";
+    $query_comm = "DELETE FROM `comment` WHERE id_article='$id'";
+
+    $result = mysqli_query($db, $query);
+    if (!$result)
+      die(mysqli_error($db));
+
+    $result = mysqli_query($db, $query_comm);
+    if (!$result)
+        die(mysqli_error($db));
+
+    return true;
+  }
+
   static public function comment_get($db, $id) {
     $query = "SELECT * FROM `comment` WHERE id_article=$id";
     $result = mysqli_query($db, $query);
