@@ -4,12 +4,14 @@
     ________________
     <a href="../guest-book/index.php?action=add">(Оставить отзыв)</a>
     ________________
-    <?php if (!$_SESSION['admin']): ?>
-      <a href="../guest-book/index.php?action=admin">Вход</a>
-    <?php endif; ?>
-
-    <?php if ($_SESSION['admin']): ?>
-      <a href="../guest-book/index.php?action=exit">Вихід</a>
-    <?php endif; ?>
+    <?php
+    if (!empty($_SESSION['admin'])) {
+      if (!$_SESSION['admin'])
+        echo "<a href=\"../guest-book/index.php?action=admin\">Вход</a>";
+      elseif ($_SESSION['admin'])
+        echo '<a href="../guest-book/index.php?action=exit">Вихід</a>';
+    } else
+      echo "<a href=\"../guest-book/index.php?action=admin\">Вход</a>";
+    ?>
   </em>
 </h2>
