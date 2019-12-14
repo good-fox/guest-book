@@ -9,7 +9,8 @@
     <p><?php
     if (!empty($_SESSION['admin'])) {
       if ($_SESSION['admin']) {
-        echo "Вітаю адмін";
+        $id_temp = $a['id'];
+        echo "<a href='../guest-book/index.php?id=$id_temp&action=delete'>Удалить отзив</a>"; 
       }
     } ?></p>
   </div>
