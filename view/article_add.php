@@ -2,7 +2,7 @@
 
 if (!empty($_POST)) {
   $title = $_POST['title'];
-  $date = $_POST['date'];
+  $date = date('Y-m-d'); //h:i:s');
   $content = $_POST['content'];
   $name = $_POST['name'];
   $email = $_POST['email'];
@@ -26,10 +26,6 @@ if (!empty($_POST)) {
     <label>
       Назва
       <input type="text" name="title" value="<?php if (!empty($article['title'])) echo $article['title'];?>" class="form-item" autofocus required>
-    </label>
-    <label>
-      Дата
-      <input type="date" name="date" value="<?php if (!empty($article['date'])) echo $article['date'];?>" class="form-item" required>
     </label>
     <label>
       Текст
