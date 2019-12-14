@@ -19,9 +19,10 @@
 </div>
 
 <div class="comment">
-  <h2>
+  <h4>
+    <br>
     <em>Коментарии</em>
-  </h2>
+  </h4>
 
   <?php foreach ($comment as $c): ?>
     <em>Опубліковано: </em>
