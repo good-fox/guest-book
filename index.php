@@ -18,26 +18,24 @@
         if (!empty($_GET['id']) or !empty($_GET['action'])) {
 
           if ((!empty($_GET['id'])) and (!empty($_GET['action'])) and (!empty($_SESSION['admin']))) {
-            if (($_SESSION['admin']) and ($_GET['action'] == 'delete')){
-              $id = $_GET['id'];
-              SQL::article_delete($db->get_db(), $id);
+                if (($_SESSION['admin']) and ($_GET['action'] == 'delete')){
+                  $id = $_GET['id'];
+                  SQL::article_delete($db->get_db(), $id);
+                  header("Location: index.php"); }
 
-              header("Location: index.php");
-            }
-          }
-
-          elseif (!empty($_GET['id'])) {
+          } elseif (!empty($_GET['id'])) {
             $id = $_GET['id'];
             $article = SQL::article_get($db->get_db(), $id);
             $comment = SQL::comment_get($db->get_db(), $id);
-
             require_once('view/article.php');
 
           } elseif ($_GET['action'] == 'add') {
             require_once('view/article_add.php');
             //SQL::article_add($db->get_db(), $name, $email, $title, $date, $content);
+
           } elseif ($_GET['action'] == 'admin') {
             require_once('view/admin.php');
+
           } elseif ($_GET['action'] == 'exit') {
             $_SESSION['admin'] = false;
             header("Location: index.php");
