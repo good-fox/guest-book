@@ -17,7 +17,16 @@
 
         if (!empty($_GET['id']) or !empty($_GET['action'])) {
 
-          if (!empty($_GET['id'])) {
+          if ((!empty($_GET['id'])) and (!empty($_GET['action'])) and (!empty($_SESSION['admin']))) {
+            if (($_SESSION['admin']) and ($_GET['action'] == 'delete')){
+              $id = $_GET['id'];
+              SQL::article_delete($db->get_db(), $id);
+
+              header("Location: index.php");
+            }
+          }
+
+          elseif (!empty($_GET['id'])) {
             $id = $_GET['id'];
             $article = SQL::article_get($db->get_db(), $id);
             $comment = SQL::comment_get($db->get_db(), $id);
